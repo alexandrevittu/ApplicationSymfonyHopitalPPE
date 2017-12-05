@@ -1,0 +1,21 @@
+
+{%block stylesheets%}
+{%endblock%}
+{% block body %}
+ <div id="menu">
+ <h1>gestion patient</h1>
+	<ul>
+		<li><a href="{{path('gestion_ajouterpatient',{})}}">ajouter patient</a></li>
+		<li><a href="{{path('gestion_afficherpatient',{})}}">afficher patient</a></li>
+		<li><a href="{{path('gestionBundle_ajouterSejour',{})}}">Ajouter un sejour</a></li>
+		<li><a href="{{path('gestionBundle_consulterSejour',{})}}">Consulter les sejours</a></li>
+    <li><a href="{{path('gestionBundle_afficherchambre',{})}}">Consulter les chambres</a></li>
+    <li><a href="{{path('gestionBundle_ajouterchambre',{})}}">ajouter une chambres</a></li>
+
+
+	</ul>
+ </div>
+<div id="corps">
+ {%block corps%}{%endblock%}
+</div>
+{%endblock%}

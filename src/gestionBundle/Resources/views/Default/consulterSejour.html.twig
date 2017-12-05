@@ -1,0 +1,18 @@
+{% extends 'gestionBundle:Default:base.html.twig' %}
+{%block corps%}
+	<h2>Les sejours</h2>
+	<table>
+	<tr><th>Id</th><th>Date de debut</th><th>Date de fin</th><th>le numero du lit</th></th><th>le numero du patient</tr>
+	{% for sejour in lesSejours %}
+	<tr>
+		<td>{{sejour.getId()}}</td>
+		<td>{{sejour.getDateDebut()|date("d-m-Y")}}</td>
+		<td>{{sejour.getDateFin()|date("d-m-Y")}}</td>
+		
+		<td>{{sejour.getNumlit()}}</td>
+		<td>{{sejour.getPatient().getId()}}</td>
+		{%else%}
+	<tr><td>Pas d'utilisateur trouvé.</td></tr>
+	{%endfor%}
+	</table>
+{%endblock%}

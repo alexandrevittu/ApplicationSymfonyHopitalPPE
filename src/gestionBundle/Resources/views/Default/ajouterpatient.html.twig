@@ -1,0 +1,7 @@
+{% extends 'gestionBundle:Default:base.html.twig'%}
+{%block corps%}
+<h2>Formulaire d'ajout de patient</h2>
+<form action="{{path('gestion_ajouterpatient')}}" method="post">
+	{{form_widget(form)}}
+</form>
+{%endblock%}

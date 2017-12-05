@@ -1,0 +1,36 @@
+gestion_homepage:
+    path:     /accueil
+    defaults: { _controller: gestionBundle:Default:index }
+gestion_ajouterpatient:
+    path:     /ajouterpatient
+    defaults: { _controller: gestionBundle:Default:ajouterpatient }
+gestion_modifierpatient:
+    path:     /modifierpatient
+    defaults: { _controller: gestionBundle:Default:modifierpatient }
+gestion_afficherpatient:
+    path:     /afficherpatient
+    defaults: { _controller: gestionBundle:Default:afficherpatient }
+gestion_supprimerpatient:
+    path:     /supprimerpatient
+    defaults: { _controller: gestionBundle:Default:supprimerpatient }
+gestionBundle_consulterSejour:
+    path:     /consulterSejour
+    defaults: { _controller: gestionBundle:Default:consulterSejour }
+gestionBundle_ajouterSejour:
+    path:     /ajouterSejour
+    defaults: { _controller: gestionBundle:Default:ajouterSejour }
+gestionBundle_supprimmerSejour:
+    path:     /supprimmerSejour
+    defaults: { _controller: gestionBundle:Default:supprimmerSejour }
+gestionBundle_ajouterchambre:
+    path:     /ajouterchambre
+    defaults: { _controller: gestionBundle:Default:ajouterchambre }
+gestionBundle_afficherchambre:
+    path:     /afficherchambre
+    defaults: { _controller: gestionBundle:Default:afficherchambre }
+gestion_supprimerchambre:
+    path:     /supprimerchambre
+    defaults: { _controller: gestionBundle:Default:supprimerchambre }
+gestion_modifierchambre:
+    path:     /modifierchambre
+    defaults: { _controller: gestionBundle:Default:modifierchambre }

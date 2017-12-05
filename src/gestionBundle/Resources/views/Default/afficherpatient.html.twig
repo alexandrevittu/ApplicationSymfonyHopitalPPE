@@ -1,0 +1,23 @@
+{% extends 'gestionBundle:Default:base.html.twig'%}
+
+{%block corps%}
+<h2>Liste des patients</h2>
+<table>
+<tr><th>nom</th><th>numero securité social</th><th>prenom</th><th>codepostal</th><th>mail</th><th>assurer</th></tr>
+{% for patient in lespatients %}
+	<tr>
+
+		<td>{{patient.getNom()}}</td>
+		<td>{{patient.getNumerosecu()}}</td>
+		<td>{{patient.getPrenom()}}</td>
+		<td>{{patient.getCodepostal()}}</td>
+		<td>{{patient.getMail()}}</td>
+		<td>{{patient.getAssurer()}}</td>
+		<td><a href="{{path('gestion_modifierpatient',{nom:patient.getNom()})}} "> Modifier le patient </a></td>
+		<td><a href="{{path('gestion_supprimerpatient',{id:patient.getId()})}} "> supprimer le patient </a></td>
+	</tr>
+{%else%}
+	<tr><td>Pas de patient trouvé.</td></tr>
+{%endfor%}
+</table>
+{%endblock%}

@@ -1,0 +1,16 @@
+{% extends 'gestionBundle:Default:base.html.twig' %}
+{%block corps%}
+	<h2>Les chambres</h2>
+	<table>
+	<tr><th>Id</th><th>Date de debut</th>
+	{% for chambre in leschambres %}
+	<tr>
+		<td>{{chambre.getId()}}</td>
+		<td>{{chambre.getService().getId()}}</td>
+		<td><a href="{{path('gestion_supprimerchambre',{id:chambre.getId()})}} "> supprimer la chambre </a></td>
+		<td><a href="{{path('gestion_modifierchambre',{id:chambre.getId()})}} "> modifier la chambre </a></td>
+	{%else%}
+	<tr><td>Pas de chambre trouvé.</td></tr>
+	{%endfor%}
+	</table>
+{%endblock%}

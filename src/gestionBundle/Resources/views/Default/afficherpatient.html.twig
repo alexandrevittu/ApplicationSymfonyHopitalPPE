@@ -13,7 +13,7 @@
 		<td>{{patient.getCodepostal()}}</td>
 		<td>{{patient.getMail()}}</td>
 		<td>{{patient.getAssurer()}}</td>
-		<td><a href="{{path('gestion_modifierpatient',{nom:patient.getNom()})}} "> Modifier le patient </a></td>
+		<td><a href="{{path('gestion_modifierpatient',{id:patient.getId()})}} "> Modifier le patient </a></td>
 		<td><a href="{{path('gestion_supprimerpatient',{id:patient.getId()})}} "> supprimer le patient </a></td>
 	</tr>
 {%else%}

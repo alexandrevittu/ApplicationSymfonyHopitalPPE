@@ -1,0 +1,6 @@
+{% extends 'gestionBundle:Default:base.html.twig'%}
+{%block corps%}
+<form action="{{path('gestionBundle_ajouterService')}}" method="post">
+	{{form_widget(form)}}
+</form>
+{%endblock%}

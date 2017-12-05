@@ -34,3 +34,18 @@ gestion_supprimerchambre:
 gestion_modifierchambre:
     path:     /modifierchambre
     defaults: { _controller: gestionBundle:Default:modifierchambre }
+gestionBundle_ajouterService:
+    path:     /ajouterService
+    defaults: { _controller: gestionBundle:Default:ajouterService }
+gestionBundle_afficherService:
+    path:     /afficherService
+    defaults: { _controller: gestionBundle:Default:afficherService }
+gestion_supprimerService:
+    path:     /supprimerService
+    defaults: { _controller: gestionBundle:Default:supprimerService }
+gestion_modifierService:
+    path:     /modifierService
+    defaults: { _controller: gestionBundle:Default:modifierService }
+gestion_modifierSejour:
+    path:     /modifierSejour
+    defaults: { _controller: gestionBundle:Default:modifierSejour }

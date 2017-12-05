@@ -9,6 +9,7 @@ use gestionBundle\Entity\sejours;
 use gestionBundle\Entity\chambre;
 use gestionBundle\Entity\service;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class DefaultController extends Controller
 {
@@ -64,7 +65,7 @@ class DefaultController extends Controller
 	    public function modifierpatientAction(Request $request)
     {
 
-        $id=$request->query->get('nom');
+        $id=$request->query->get('id');
         $em=$this->getDoctrine()->getManager();
         $repository=$em->getRepository('gestionBundle:patient');
         $unpatient=$repository->find($id);
@@ -77,7 +78,7 @@ class DefaultController extends Controller
         $formBuilder->add('codepostal','number',array('label'=>'Saisir votre code postal : '));
         $formBuilder->add('datenaiss','datetime',array('label'=>'Saisir votre date de naissance : '));
         $formBuilder->add('mail','text',array('label'=>'Saisir votre mail : '));
-        $formBuilder->add('assurer','number',array('label'=>'Saisir vi vous ete assurer ou ayan-droit : '));
+        $formBuilder->add('assurer',CheckboxType::class,array('label'=>'Saisir vi vous ete assurer ou ayan-droit : ','required' => false));
         $formBuilder->add('save','submit');
 
         $form = $formBuilder->getForm();
@@ -220,6 +221,114 @@ class DefaultController extends Controller
      $em->flush();
 
      return $this->render('gestionBundle:Default:supprimerchambre.html.twig');
+  }
+
+
+  public function afficherServiceAction(Request $request){
+
+    $doctrine=$this->getDoctrine();
+    $entityManager=$doctrine->getManager();
+    $repository=$entityManager->getRepository('gestionBundle:service');
+
+    $lesServices=$repository->findAll();
+
+    return $this->render('gestionBundle:Default:afficherService.html.twig',array('lesServices'=>$lesServices));
+  }
+
+  public function ajouterServiceAction(Request $request){
+
+    $unService = new service();
+    $formBuilder=$this->createFormBuilder($unService);
+    $formBuilder->add('libelle','text',array('label'=>'Saisir le service : '));
+    $formBuilder->add('save','submit');
+    $form = $formBuilder->getForm();
+
+    if($request->getMethod()=='POST')
+    {
+      $form->bind($request);
+      if($form->isValid())
+      {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($unechambre);
+        $em->flush();
+      }
+
+    }
+
+    return $this->render('gestionBundle:Default:ajouterService.html.twig',array('form'=>$form->createView()));
+
+  }
+
+  public function modifierServiceAction(Request $request){
+
+    $id=$request->query->get('id');
+    $em=$this->getDoctrine()->getManager();
+    $repository=$em->getRepository('gestionBundle:service');
+    $unService=$repository->find($id);
+
+    $formBuilder=$this->createFormBuilder($unService);
+    $formBuilder->add('libelle','text',array('label'=>'Saisir le service : '));
+    $formBuilder->add('save','submit');
+    $form = $formBuilder->getForm();
+
+    if($request->getMethod()=='POST')
+     {
+      $form->bind($request);
+      if($form->isValid())
+     {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($unService);
+        $em->flush();
+     }
+
+     }
+
+      return $this->render('gestionBundle:Default:modifierService.html.twig',array('form'=>$form->createView()));
+
+  }
+
+  public function supprimerServiceAction(Request $request){
+
+
+
+  }
+
+
+  public function supprimmerSejourAction(Request $request){
+
+  }
+
+  public function modifierSejourAction(Request $request){
+
+    $id=$request->query->get('id');
+    $em=$this->getDoctrine()->getManager();
+    $repository=$em->getRepository('gestionBundle:sejours');
+    $unSejour=$repository->find($id);
+
+    $formBuilder=$this->createFormBuilder($unSejour);
+    $formBuilder->add('dateDebut','date');
+    $formBuilder->add('dateFin','date');
+    $formBuilder->add('Patient','entity',array('class'=>'gestionBundle:patient','property'=>'nom'));
+    $formBuilder->add('leschambres','entity',array('class'=>'gestionBundle:chambre','property'=>'id'));
+    $formBuilder->add('numlit','number');
+    
+    $formBuilder->add('save','submit');
+    $form = $formBuilder->getForm();
+
+    if($request->getMethod()=='POST')
+     {
+      $form->bind($request);
+      if($form->isValid())
+     {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($unService);
+        $em->flush();
+     }
+
+     }
+
+      return $this->render('gestionBundle:Default:modifierSejour.html.twig',array('form'=>$form->createView()));
+
   }
 
 

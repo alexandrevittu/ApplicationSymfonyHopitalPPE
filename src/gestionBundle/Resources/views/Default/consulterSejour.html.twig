@@ -8,11 +8,12 @@
 		<td>{{sejour.getId()}}</td>
 		<td>{{sejour.getDateDebut()|date("d-m-Y")}}</td>
 		<td>{{sejour.getDateFin()|date("d-m-Y")}}</td>
-		
 		<td>{{sejour.getNumlit()}}</td>
 		<td>{{sejour.getPatient().getId()}}</td>
+		<td><a href="{{path('gestion_modifierSejour',{id:sejour.getId()})}} "> Modifier le sejour </a></td>
+		<td><a href="{{path('gestionBundle_supprimmerSejour',{id:sejour.getId()})}} "> supprimer le sejour </a></td>
 		{%else%}
-	<tr><td>Pas d'utilisateur trouvé.</td></tr>
+	<tr><td>Pas de sejour trouvé.</td></tr>
 	{%endfor%}
 	</table>
 {%endblock%}

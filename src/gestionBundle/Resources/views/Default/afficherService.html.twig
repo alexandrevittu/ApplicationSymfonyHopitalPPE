@@ -1,0 +1,16 @@
+{% extends 'gestionBundle:Default:base.html.twig' %}
+{%block corps%}
+	<h2>Les Services</h2>
+	<table>
+	<tr><th>Services</th></tr>
+	{% for service in lesServices %}
+	<tr>
+		<td>{{service.getLibelle()}}</td>
+		<td><a href="{{path('gestion_supprimerService',{id:service.getId()})}} "> supprimer le service </a></td>
+		<td><a href="{{path('gestion_modifierService',{id:service.getId()})}} "> modifier le service </a></td>
+	</tr>
+	{%else%}
+	<tr><td>Pas de service trouvé.</td></tr>
+	{%endfor%}
+	</table>
+{%endblock%}

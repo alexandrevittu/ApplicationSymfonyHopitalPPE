@@ -16,7 +16,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
 
-		
+
 
         return $this->render('gestionBundle:Default:index.html.twig');
     }
@@ -133,6 +133,10 @@ class DefaultController extends Controller
        $repository=$em->getRepository('gestionBundle:patient');
        $unpatient=$repository->find($id);
 
+       $query = $em->createQuery('DELETE FROM gestionBundle:sejours C WHERE C.patient = :id');
+       $query->setParameter('id',$id);
+       $query->execute();
+
        $em->remove($unpatient);
        $em->flush();
 
@@ -213,7 +217,7 @@ class DefaultController extends Controller
      $em=$this->getDoctrine()->getManager();
      $repository=$em->getRepository('gestionBundle:chambre');
      $unechambre=$repository->find($id);
-     $query = $em->createQuery('DELETE FROM gestionBundle:chambre C WHERE C.sejours = :id');
+     $query = $em->createQuery('DELETE FROM gestionBundle:sejours C WHERE C.leschambres = :id');
      $query->setParameter('id',$id);
      $query->execute();
 
@@ -289,12 +293,37 @@ class DefaultController extends Controller
 
   public function supprimerServiceAction(Request $request){
 
+    $id=$request->query->get('id');
+    $em=$this->getDoctrine()->getManager();
+    $repository=$em->getRepository('gestionBundle:service');
+    $unservice=$repository->find($id);
+    $query = $em->createQuery('DELETE FROM gestionBundle:chambre C WHERE C.service = :id');
+    $query->setParameter('id',$id);
+    $query->execute();
 
+
+
+
+    $em->remove($unservice);
+    $em->flush();
+
+    return $this->render('gestionBundle:Default:supprimerService.html.twig');
 
   }
 
 
   public function supprimmerSejourAction(Request $request){
+
+    $id=$request->query->get('id');
+    $em=$this->getDoctrine()->getManager();
+    $repository=$em->getRepository('gestionBundle:sejours');
+    $unsejour=$repository->find($id);
+
+
+    $em->remove($unsejour);
+    $em->flush();
+
+    return $this->render('gestionBundle:Default:supprimmerSejour.html.twig');
 
   }
 
@@ -311,7 +340,7 @@ class DefaultController extends Controller
     $formBuilder->add('Patient','entity',array('class'=>'gestionBundle:patient','property'=>'nom'));
     $formBuilder->add('leschambres','entity',array('class'=>'gestionBundle:chambre','property'=>'id'));
     $formBuilder->add('numlit','number');
-    
+
     $formBuilder->add('save','submit');
     $form = $formBuilder->getForm();
 

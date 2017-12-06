@@ -24,14 +24,14 @@ class chambre
 	 /**
      *
      * @ORM\ManyToOne(targetEntity="service", inversedBy="chambre")
-     * 
+     *
      */
     private $service;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,7 +54,7 @@ class chambre
     /**
      * Get service
      *
-     * @return \gestionBundle\Entity\service 
+     * @return \gestionBundle\Entity\service
      */
     public function getService()
     {

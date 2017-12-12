@@ -253,7 +253,7 @@ class DefaultController extends Controller
       if($form->isValid())
       {
         $em = $this->getDoctrine()->getManager();
-        $em->persist($unechambre);
+        $em->persist($unService);
         $em->flush();
       }
 
@@ -350,7 +350,7 @@ class DefaultController extends Controller
       if($form->isValid())
      {
         $em = $this->getDoctrine()->getManager();
-        $em->persist($unService);
+        $em->persist($unSejour);
         $em->flush();
      }
 

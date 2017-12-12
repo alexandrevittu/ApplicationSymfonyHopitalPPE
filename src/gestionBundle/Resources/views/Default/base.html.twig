@@ -1,6 +1,8 @@
 
 {%block stylesheets%}
+
 <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+
 {%endblock%}
 {% block head %}
     <title>{% block title %}{% endblock %} Bienvenue sur le site de l'hopital</title>
@@ -34,7 +36,7 @@
 		</li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Les services</a>
-			<div class="sous-menu">			
+			<div class="sous-menu">
 				<a href="{{path('gestionBundle_ajouterService')}}">Ajouter un service</a>
 				<a href="{{path('gestionBundle_afficherService')}}">Consulter les services</a>
 			</div>

@@ -2,6 +2,10 @@
 {%block stylesheets%}
 <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 {%endblock%}
+{% block head %}
+    <title>{% block title %}{% endblock %} Bienvenue sur le site de l'hopital</title>
+    <meta charset="UTF-8">
+{% endblock %}
 {% block body %}
  <div id="menu">
  <h1>Hopital de Roubaix</h1>

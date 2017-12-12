@@ -2,7 +2,7 @@
 {%block corps%}
 	<h2>Les sejours</h2>
 	<table>
-	<tr><th>Id</th><th>Date de debut</th><th>Date de fin</th><th>le numero du lit</th></th><th>le numero du patient</tr>
+	<tr><th>Id</th><th>Date de debut</th><th>Date de fin</th><th>Le numero du lit</th></th><th>Le numero du patient</tr>
 	{% for sejour in lesSejours %}
 	<tr>
 		<td>{{sejour.getId()}}</td>
@@ -11,7 +11,7 @@
 		<td>{{sejour.getNumlit()}}</td>
 		<td>{{sejour.getPatient().getId()}}</td>
 		<td><a href="{{path('gestion_modifierSejour',{id:sejour.getId()})}} "> Modifier le sejour </a></td>
-		<td><a href="{{path('gestionBundle_supprimmerSejour',{id:sejour.getId()})}} "> supprimer le sejour </a></td>
+		<td><a href="{{path('gestionBundle_supprimmerSejour',{id:sejour.getId()})}} "> Supprimer le sejour </a></td>
 		{%else%}
 	<tr><td>Pas de sejour trouvé.</td></tr>
 	{%endfor%}

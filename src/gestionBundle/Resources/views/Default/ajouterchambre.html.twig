@@ -1,5 +1,6 @@
 {% extends 'gestionBundle:Default:base.html.twig'%}
 {%block corps%}
+<h2>Formulaire d'ajout</h2>
 <form action="{{path('gestionBundle_ajouterchambre')}}" method="post">
 	{{form_widget(form)}}
 </form>

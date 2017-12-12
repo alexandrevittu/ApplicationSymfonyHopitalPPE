@@ -30,7 +30,7 @@ class DefaultController extends Controller
 		$formBuilder->add('nom','text',array('label'=>'Saisir le nom : '));
 		$formBuilder->add('prenom','text',array('label'=>'Saisir le prenom : '));
 		$formBuilder->add('codepostal','number',array('label'=>'Saisir votre code postal : '));
-		$formBuilder->add('datenaiss','datetime',array('label'=>'Saisir votre date de naissance : '));
+		$formBuilder->add('datenaiss','date',array('label'=>'Saisir votre date de naissance : '));
 		$formBuilder->add('mail','text',array('label'=>'Saisir votre mail : '));
 		$formBuilder->add('assurer','number',array('label'=>'Saisir vi vous ete assurer ou ayan-droit : '));
 		$formBuilder->add('save','submit');
@@ -76,7 +76,7 @@ class DefaultController extends Controller
         $formBuilder->add('nom','text',array('label'=>'Saisir le nom : '));
         $formBuilder->add('prenom','text',array('label'=>'Saisir le prenom : '));
         $formBuilder->add('codepostal','number',array('label'=>'Saisir votre code postal : '));
-        $formBuilder->add('datenaiss','datetime',array('label'=>'Saisir votre date de naissance : '));
+        $formBuilder->add('datenaiss','date',array('label'=>'Saisir votre date de naissance : '));
         $formBuilder->add('mail','text',array('label'=>'Saisir votre mail : '));
         $formBuilder->add('assurer',CheckboxType::class,array('label'=>'Saisir vi vous ete assurer ou ayan-droit : ','required' => false));
         $formBuilder->add('save','submit');

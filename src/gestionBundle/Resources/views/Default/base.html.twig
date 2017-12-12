@@ -1,18 +1,40 @@
 
 {%block stylesheets%}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 {%endblock%}
 {% block body %}
  <div id="menu">
- <h1>gestion patient</h1>
+ <h1>Hopital de Roubaix</h1>
 	<ul>
-		<li><a href="{{path('gestion_ajouterpatient',{})}}">ajouter patient</a></li>
-		<li><a href="{{path('gestion_afficherpatient',{})}}">afficher patient</a></li>
-		<li><a href="{{path('gestionBundle_ajouterSejour',{})}}">Ajouter un sejour</a></li>
-		<li><a href="{{path('gestionBundle_consulterSejour',{})}}">Consulter les sejours</a></li>
-		<li><a href="{{path('gestionBundle_afficherchambre',{})}}">Consulter les chambres</a></li>
-		<li><a href="{{path('gestionBundle_ajouterchambre',{})}}">Ajouter une chambres</a></li>
-		<li><a href="{{path('gestionBundle_afficherService')}}">Consulter les services</a></li>
-		<li><a href="{{path('gestionBundle_ajouterService')}}">Ajouter un service</a></li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Les patients</a>
+			<div class="sous-menu">
+				<a href="{{path('gestion_ajouterpatient',{})}}">Ajouter un patient</a>
+				<a href="{{path('gestion_afficherpatient',{})}}">Consulter les patients</a>
+			</div>
+		</li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Les séjours</a>
+			<div class="sous-menu">
+				<a href="{{path('gestionBundle_ajouterSejour',{})}}">Ajouter un sejour</a>
+				<a href="{{path('gestionBundle_consulterSejour',{})}}">Consulter les sejours</a>
+			</div>
+		</li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Les chambres</a>
+			<div class="sous-menu">
+
+				<a href="{{path('gestionBundle_ajouterchambre',{})}}">Ajouter une chambres</a>
+				<a href="{{path('gestionBundle_afficherchambre',{})}}">Consulter les chambres</a>
+			</div>
+		</li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Les services</a>
+			<div class="sous-menu">			
+				<a href="{{path('gestionBundle_ajouterService')}}">Ajouter un service</a>
+				<a href="{{path('gestionBundle_afficherService')}}">Consulter les services</a>
+			</div>
+		</li>
 
 
 	</ul>

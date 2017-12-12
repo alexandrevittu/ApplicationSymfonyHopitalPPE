@@ -3,6 +3,7 @@
 namespace gestionBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * patient
@@ -58,7 +59,10 @@ class patient
 
     /**
      * @var string
-     *
+     *@Assert\Email(
+     *    message = "The email '{{ value }}' is not a valid email.",
+     *    checkMX = true
+     *)
      * @ORM\Column(name="mail", type="string", length=255)
      */
     private $mail;
@@ -265,7 +269,7 @@ class patient
     /**
      * Get sejours
      *
-     * @return \gestionBundle\Entity\sejours 
+     * @return \gestionBundle\Entity\sejours
      */
     public function getSejours()
     {

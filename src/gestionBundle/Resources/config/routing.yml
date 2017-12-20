@@ -49,3 +49,6 @@ gestion_modifierService:
 gestion_modifierSejour:
     path:     /modifierSejour
     defaults: { _controller: gestionBundle:Default:modifierSejour }
+gestion_login:
+    path:     /login
+    defaults: { _controller: gestionBundle:Security:login }  
